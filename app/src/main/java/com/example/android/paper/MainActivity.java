@@ -1,5 +1,5 @@
 package com.example.android.paper;
-
+import com.example.android.paper.EditNote;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity
         newNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),notes);
+                Intent intent=new Intent(getApplicationContext(),EditNote.class);
+
             }
         });
 

@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-public class EditNote extends AppCompatActivity
+public class NewNote extends AppCompatActivity
 {
     public EditText titleEdit, noteEdit;
     private RelativeLayout relativeLayoutEdit;
