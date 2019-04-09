@@ -7,9 +7,11 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
 public class NewNote extends AppCompatActivity
 {
-    public EditText titleEdit, noteEdit;
+    public EditText title, note;
     private RelativeLayout relativeLayoutEdit;
     private Toolbar toolbar;
     private MenuItem removeEverything;
@@ -20,14 +22,20 @@ public class NewNote extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
 
-        titleEdit=(EditText) findViewById(R.id.titleEdit);
-        noteEdit=(EditText) findViewById(R.id.noteEdit);
+        title=(EditText) findViewById(R.id.title);
+        note=(EditText) findViewById(R.id.note);
         relativeLayoutEdit=(RelativeLayout) findViewById(R.id.relativeLayout);
         toolbar=(Toolbar) findViewById(R.id.toolbarEdit);
         removeEverything=(MenuItem) findViewById(R.id.removeEverything);
+
+
+        String getTitle=title.getText().toString().trim();
+        String getNote=note.getText().toString().trim();
+
+        //ArrayList<getTitle> titleList=new ArrayList<getTitle>();
+
+
     }
 
-    public EditText getTitleEdit() {
-        return titleEdit;
-    }
+
 }

@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,10 +40,14 @@ public class MainActivity extends AppCompatActivity
     private static ListView listView;
     private ImageButton newNote;
 
+    ArrayList<String> title=new ArrayList<>();
+    public static ArrayList<String> notes=new ArrayList<>();
+    static ArrayAdapter arrayAdapter;
+
     private Toolbar toolbar;
     private MenuItem searchMenu;
 
-    private static JSONArray notes;
+    //private static JSONArray notes;
     private static NoteAdapter adapter;
 
     public static ArrayList<Integer> notesForDelete=new ArrayList<>();
@@ -73,19 +78,31 @@ public class MainActivity extends AppCompatActivity
         toolbar.setSubtitle("A note taking app");
         toolbar.inflateMenu(R.menu.menu_main);
 
-        Menu menu=toolbar.getMenu();
+        notes.add("Example note");
+        arrayAdapter=new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,notes);
+        listView.setAdapter(arrayAdapter);
 
-        if (menu != null)
-            // Get 'Search' menu item
-            searchMenu = menu.findItem(R.id.action_search);
 
-        //Initialise NoteAdapter with the notes array.
-        adapter=new NoteAdapter(getApplicationContext(),notes);
-
-        newNote.setOnClickListener(new View.OnClickListener() {
+        newNote.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent intent=new Intent(getApplicationContext(),EditNote.class);
+                startActivity(intent);
+
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                Intent intent=new Intent(MainActivity.this,EditNote.class);
+                intent.putExtra("titleId",i);
+                intent.putExtra("noteId",i);
+                startActivity(intent);
 
             }
         });
@@ -105,6 +122,7 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
 
 

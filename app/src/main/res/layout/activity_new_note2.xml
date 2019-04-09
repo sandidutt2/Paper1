@@ -17,7 +17,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/titleEdit"
+        android:id="@+id/title"
         android:background="@color/black_10"
         android:inputType="textCapSentences"
         android:layout_below="@+id/toolbarEdit"
@@ -52,7 +52,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/noteEdit"
+            android:id="@+id/note"
             android:background="@color/transparent"
             android:inputType="textCapSentences|textImeMultiLine|textMultiLine"
             android:gravity="start|end"

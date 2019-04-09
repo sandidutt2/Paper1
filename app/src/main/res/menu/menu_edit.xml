@@ -8,9 +8,8 @@
 
 
     <item android:id="@+id/removeEverything"
-        android:title="Remove everything"
-        android:orderInCategory="102"
-        app:showAsAction="never" />
+        android:title="Remove everything" />
+
 
 
 
